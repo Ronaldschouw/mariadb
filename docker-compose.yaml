@@ -1,0 +1,17 @@
+---
+version: "3"
+
+services:
+  mariadb:
+    build:
+      context: .
+    container_name: mariadb
+    restart: unless-stopped
+    environment:
+      - MYSQL_DATABASE=database
+      - MYSQL_USER=user
+      - MYSQL_PASSWORD=pass
+      - MYSQL_ROOT_PASSWORD=pass
+      - TZ=Europe/Amsterdam
+    volumes:
+      - ./mysql:/var/lib/mysql
